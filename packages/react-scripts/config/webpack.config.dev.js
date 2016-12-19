@@ -94,7 +94,7 @@ module.exports = {
       'react-native': 'react-native-web'
     },
     root: [
-        path.resolve('./src'),
+        path.resolve('./src')
     ]
   },
   // @remove-on-eject-begin
@@ -149,7 +149,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: [
-          paths.appSrc,
+          paths.appSrc
         ],
         loader: 'babel',
         query: {
@@ -174,10 +174,12 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loaders: ['style', 'css?modules&sourceMap&camelCase&importLoaders=1' +
-                    '&localIdentName=[name]_[local]_[hash:base64:5]',
-                    'autoprefixer', 'stylus?sourceMap']
-      }
+        loaders: ['style',
+          'css?modules&sourceMap&camelCase&importLoaders=1' +
+            '&localIdentName=[name]_[local]_[hash:base64:5]',
+          'autoprefixer', 'stylus?sourceMap'
+        ]
+      },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {
