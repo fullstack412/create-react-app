@@ -55,8 +55,9 @@ module.exports = {
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
     require.resolve('react-dev-utils/webpackHotDevClient'),
+    // TODO: webpack-hot-middleware/client?reload=true
     // We ship a few polyfills by default:
-    require.resolve('./polyfills'),
+    // require.resolve('./polyfills'),
     // Finally, this is your app's code:
     paths.appIndexJs
     // We include the app code last so that if there is a runtime error during
@@ -91,7 +92,10 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web'
-    }
+    },
+    root: [
+        path.resolve('./src'),
+    ]
   },
   // @remove-on-eject-begin
   // Resolve loaders (webpack plugins for CSS, images, transpilation) from the
@@ -131,6 +135,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.styl$/,
           /\.json$/,
           /\.svg$/
         ],
@@ -143,7 +148,9 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [
+          paths.appSrc,
+        ],
         loader: 'babel',
         query: {
           // @remove-on-eject-begin
@@ -165,6 +172,12 @@ module.exports = {
         test: /\.css$/,
         loader: 'style!css?importLoaders=1!postcss'
       },
+      {
+        test: /\.styl$/,
+        loaders: ['style', 'css?modules&sourceMap&camelCase&importLoaders=1' +
+                    '&localIdentName=[name]_[local]_[hash:base64:5]',
+                    'autoprefixer', 'stylus?sourceMap']
+      }
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {
@@ -200,6 +213,9 @@ module.exports = {
         ]
       }),
     ];
+  },
+  stylus: {
+      use: [jeet(), rupture(), axis()],
   },
   plugins: [
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:

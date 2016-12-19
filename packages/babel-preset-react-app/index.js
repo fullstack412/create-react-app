@@ -13,6 +13,7 @@ var path = require('path');
 const plugins = [
   // class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
+  require.resolve('babel-undeclared-variables-check'),
   // The following two plugins use Object.assign directly, instead of Babel's
   // extends helper. Note that this assumes `Object.assign` is available.
   // { ...todo, completed: true }
@@ -25,7 +26,7 @@ const plugins = [
   }],
   // Polyfills the runtime needed for async/await and generators
   [require.resolve('babel-plugin-transform-runtime'), {
-    helpers: false,
+    helpers: true,
     polyfill: false,
     regenerator: true,
     // Resolve the Babel runtime relative to the config.
@@ -63,6 +64,10 @@ if (env === 'development' || env === 'test') {
   ]);
 }
 
+const options = {
+  comments: false,
+};
+
 if (env === 'test') {
   plugins.push.apply(plugins, [
     // We always include this plugin regardless of environment
@@ -87,8 +92,13 @@ if (env === 'test') {
 } else {
   module.exports = {
     presets: [
-      // Latest stable ECMAScript features
-      require.resolve('babel-preset-latest'),
+      [require('babel-preset-env').default, {
+        "targets": {
+          "chrome": 52 // TODO: fix this
+        },
+        "modules": false,
+        "useBuiltIns": true,
+      }],
       // JSX, Flow
       require.resolve('babel-preset-react')
     ],

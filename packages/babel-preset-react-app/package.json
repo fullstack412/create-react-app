@@ -1,11 +1,11 @@
 {
-  "name": "babel-preset-react-app",
+  "name": "@psychwire/babel-preset-react-app",
   "version": "2.0.1",
   "description": "Babel preset used by Create React App",
-  "repository": "facebookincubator/create-react-app",
+  "repository": "psychwire/create-react-app",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "psychwire/create-react-app/issues"
   },
   "files": [
     "index.js"
@@ -20,6 +20,7 @@
     "babel-plugin-transform-react-jsx-source": "6.9.0",
     "babel-plugin-transform-regenerator": "6.16.1",
     "babel-plugin-transform-runtime": "6.15.0",
+    "babel-plugin-undeclared-variables-check": "^6.8.0",
     "babel-preset-env": "0.0.8",
     "babel-preset-latest": "6.16.0",
     "babel-preset-react": "6.16.0",
