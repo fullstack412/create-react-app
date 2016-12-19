@@ -13,7 +13,7 @@ var path = require('path');
 const plugins = [
   // class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
-  require.resolve('babel-undeclared-variables-check'),
+  require.resolve('babel-plugin-undeclared-variables-check'),
   // The following two plugins use Object.assign directly, instead of Babel's
   // extends helper. Note that this assumes `Object.assign` is available.
   // { ...todo, completed: true }

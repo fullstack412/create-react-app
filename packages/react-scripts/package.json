@@ -1,6 +1,6 @@
 {
   "name": "@psychwire/react-scripts",
-  "version": "0.8.5",
+  "version": "0.8.10",
   "description": "Configuration and scripts for Create React App.",
   "repository": "psychwire/create-react-app",
   "license": "BSD-3-Clause",
@@ -23,7 +23,7 @@
     "react-scripts": "./bin/react-scripts.js"
   },
   "dependencies": {
-    "@psychwire/babel-preset-react-app": "^2.0.1",
+    "@psychwire/babel-preset-react-app": "^2.0.2",
     "autoprefixer": "6.5.1",
     "axis": "^0.6.1",
     "babel-core": "6.17.0",

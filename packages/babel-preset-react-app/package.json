@@ -1,6 +1,6 @@
 {
   "name": "@psychwire/babel-preset-react-app",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Babel preset used by Create React App",
   "repository": "psychwire/create-react-app",
   "license": "BSD-3-Clause",
