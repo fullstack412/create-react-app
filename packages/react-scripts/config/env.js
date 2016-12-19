@@ -31,7 +31,18 @@ function getClientEnvironment(publicUrl) {
       // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
       // This should only be used as an escape hatch. Normally you would put
       // images into the `src` and `import` them in code to get their paths.
-      'PUBLIC_URL': JSON.stringify(publicUrl)
+      'PUBLIC_URL': JSON.stringify(publicUrl),
+      'LOGIN_ENV': JSON.stringify(process.env.LOGIN_ENV),
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'LEGACY_API': JSON.stringify(process.env.LEGACY_API),
+      'API': JSON.stringify(process.env.API),
+      'CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
+      'CLOUDINARY_UPLOAD_URL':
+          JSON.stringify('http://api.cloudinary.com/v1_1/psychwire/upload'),
+      'CLOUDINARY_API_KEY': JSON.stringify('681975394275784'),
+      'CLOUDINARY_CLOUD_NAME': JSON.stringify('psychwire'),
+      'CLOUDINARY_UPLOAD_PRESET': JSON.stringify('pw_client'),
+      'EMBEDLY_API_KEY': JSON.stringify('7d0cfef04ee04e3a9ad011cd21372d73'),
     });
   return {'process.env': processEnv};
 }
