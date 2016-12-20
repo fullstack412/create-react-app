@@ -13,7 +13,6 @@ var path = require('path');
 const plugins = [
   // class { handleClick = () => { } }
   require.resolve('babel-plugin-transform-class-properties'),
-  require.resolve('babel-plugin-undeclared-variables-check'),
   // The following two plugins use Object.assign directly, instead of Babel's
   // extends helper. Note that this assumes `Object.assign` is available.
   // { ...todo, completed: true }
@@ -93,16 +92,19 @@ if (env === 'test') {
   module.exports = {
     presets: [
       [require('babel-preset-env').default, {
-        "targets": {
-          "chrome": 52 // TODO: fix this
+        targets: {
+          browsers: ['last 3 versions', 'safari >= 7']
         },
-        "modules": false,
-        "useBuiltIns": true,
+        modules: 'commonjs',
+        loose: true,
+        useBuiltIns: true,
+        include: ['transform-es2015-modules-commonjs']
       }],
       // JSX, Flow
       require.resolve('babel-preset-react')
     ],
     plugins: plugins.concat([
+      require.resolve('babel-plugin-undeclared-variables-check'),
       // function* () { yield 42; yield 43; }
       [require.resolve('babel-plugin-transform-regenerator'), {
         // Async functions are converted to generators by babel-preset-latest
