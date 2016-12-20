@@ -104,7 +104,6 @@ if (env === 'test') {
       require.resolve('babel-preset-react')
     ],
     plugins: plugins.concat([
-      require.resolve('babel-plugin-undeclared-variables-check'),
       // function* () { yield 42; yield 43; }
       [require.resolve('babel-plugin-transform-regenerator'), {
         // Async functions are converted to generators by babel-preset-latest

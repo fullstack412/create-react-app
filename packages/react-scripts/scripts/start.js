@@ -60,6 +60,7 @@ if (isSmokeTest) {
   };
 }
 
+config.cache = {};
 function setupCompiler(host, port, protocol) {
   // "Compiler" is a low-level interface to Webpack.
   // It lets us listen to some events and provide our own custom messages.

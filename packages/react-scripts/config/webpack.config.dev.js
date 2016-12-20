@@ -41,6 +41,7 @@ var env = getClientEnvironment(publicUrl);
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
 module.exports = {
+  cache: true,
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
@@ -98,7 +99,7 @@ module.exports = {
       'react-native': 'react-native-web'
     },
     root: [
-        path.resolve('./src')
+      path.resolve('./src')
     ]
   },
   // @remove-on-eject-begin
@@ -110,6 +111,9 @@ module.exports = {
   },
   // @remove-on-eject-end
   module: {
+    noParse: [
+      /\pdf.dist.js$/
+    ],
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
     preLoaders: [
@@ -152,9 +156,7 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: [
-          paths.appSrc
-        ],
+        include: paths.appSrc,
         loader: 'babel',
         query: {
           // @remove-on-eject-begin

@@ -19,6 +19,10 @@ var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 
+var jeet = require('jeet');
+var rupture = require('rupture');
+var axis = require('axis');
+
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
 var path = require('path');
@@ -66,10 +70,10 @@ module.exports = {
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
-  devtool: 'source-map',
+  devtool: false,
   // In production, we only want to load the polyfills and the app code.
   entry: [
-    require.resolve('./polyfills'),
+    // DISABLED: require.resolve('./polyfills'),
     paths.appIndexJs
   ],
   output: {
@@ -99,7 +103,10 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web'
-    }
+    },
+    root: [
+      path.resolve('./src')
+    ]
   },
   // @remove-on-eject-begin
   // Resolve loaders (webpack plugins for CSS, images, transpilation) from the
@@ -110,6 +117,9 @@ module.exports = {
   },
   // @remove-on-eject-end
   module: {
+    noParse: [
+      /\pdf.dist.js$/
+    ],
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
     preLoaders: [
@@ -138,6 +148,7 @@ module.exports = {
           /\.(js|jsx)$/,
           /\.css$/,
           /\.json$/,
+          /\.styl$/,
           /\.svg$/
         ],
         loader: 'url',
@@ -154,7 +165,7 @@ module.exports = {
         // @remove-on-eject-begin
         query: {
           babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
+          presets: [require.resolve('@psychwire/babel-preset-react-app')],
         },
         // @remove-on-eject-end
       },
@@ -174,6 +185,12 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      {
+        test: /\.styl$/,
+        include: paths.appSrc,
+        loader: 'style-loader!css-loader?modules&camelCase&importLoaders=1&' +
+              'localIdentName=[name]_[local]_[hash:base64:5]!postcss-loader!stylus-loader'
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -212,6 +229,9 @@ module.exports = {
         ]
       }),
     ];
+  },
+  stylus: {
+      use: [jeet(), rupture(), axis()],
   },
   plugins: [
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
