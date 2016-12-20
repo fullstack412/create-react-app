@@ -183,7 +183,8 @@ module.exports = {
         loaders: ['style',
           'css?modules&sourceMap&camelCase&importLoaders=1' +
             '&localIdentName=[name]_[local]_[hash:base64:5]',
-          'autoprefixer', 'stylus?sourceMap'
+          'postcss',
+          'stylus?sourceMap'
         ]
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
