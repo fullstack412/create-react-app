@@ -176,18 +176,19 @@ module.exports = {
       {
         test: /\.css$/,
         include: paths.appSrc,
-        loaders: ['css?modules&camelCase', 'postcss']
+        loaders: ['style', 'css?modules&camelCase', 'postcss']
       },
       {
         test: /\.css$/,
         exclude: paths.appSrc,
-        loaders: ['css']
+        loaders: ['style', 'css']
       },
       {
         test: /\.styl$/,
         include: paths.appSrc,
         loaders:
           [
+            'style',
             'css?modules&camelCase&importLoaders=1&' +
               'localIdentName=[name]_[local]_[hash:base64:5]',
               'postcss',
