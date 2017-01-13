@@ -286,7 +286,10 @@ module.exports = {
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env),
     // This helps ensure the builds are consistent if source hasn't changed:
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    // Disable for now as causes "Cannot read property 'call' of undefined" error
+    // https://github.com/webpack/webpack/issues/959#issuecomment-230034876
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+
     // Try to dedupe duplicated modules, if any:
     new webpack.optimize.DedupePlugin(),
     // Minify the code.
