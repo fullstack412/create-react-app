@@ -33,12 +33,11 @@ function getClientEnvironment(publicUrl) {
       // images into the `src` and `import` them in code to get their paths.
       'PUBLIC_URL': JSON.stringify(publicUrl),
       'LOGIN_ENV': JSON.stringify(process.env.LOGIN_ENV),
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'LEGACY_API': JSON.stringify(process.env.LEGACY_API),
       'API': JSON.stringify(process.env.API),
       'CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
       'CLOUDINARY_UPLOAD_URL':
-          JSON.stringify('http://api.cloudinary.com/v1_1/psychwire/upload'),
+          JSON.stringify('https://api.cloudinary.com/v1_1/psychwire/upload'),
       'CLOUDINARY_API_KEY': JSON.stringify('681975394275784'),
       'CLOUDINARY_CLOUD_NAME': JSON.stringify('psychwire'),
       'CLOUDINARY_UPLOAD_PRESET': JSON.stringify('pw_client'),
