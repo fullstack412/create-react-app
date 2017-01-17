@@ -33,7 +33,6 @@ function getClientEnvironment(publicUrl) {
       // images into the `src` and `import` them in code to get their paths.
       'PUBLIC_URL': JSON.stringify(publicUrl),
       'LOGIN_ENV': JSON.stringify(process.env.LOGIN_ENV),
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'LEGACY_API': JSON.stringify(process.env.LEGACY_API),
       'API': JSON.stringify(process.env.API),
       'CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
