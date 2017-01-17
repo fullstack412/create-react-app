@@ -1,6 +1,6 @@
 {
   "name": "@psychwire/react-scripts",
-  "version": "0.8.30",
+  "version": "0.8.31",
   "description": "Configuration and scripts for Create React App.",
   "repository": "psychwire/create-react-app",
   "license": "BSD-3-Clause",
