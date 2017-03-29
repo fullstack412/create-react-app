@@ -164,7 +164,7 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loader: 'babel',
         // @remove-on-eject-begin
         query: {
