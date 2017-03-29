@@ -95,7 +95,7 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
       '@components': '@psychwire/playground/src/packages/',
     },
     root: [
@@ -156,7 +156,7 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loader: 'babel',
         query: {
           // @remove-on-eject-begin
