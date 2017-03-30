@@ -187,17 +187,17 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.css$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loader: ExtractCSSPlugin.extract(['css?modules&camelCase', 'postcss'])
       },
       {
         test: /\.css$/,
-        exclude: paths.appSrc,
+        exclude: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loader: ExtractCSSPlugin.extract(['css'])
       },
       {
         test: /\.styl$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loader: ExtractCSSPlugin.extract(
           [
             'css?modules&camelCase&importLoaders=1&' +

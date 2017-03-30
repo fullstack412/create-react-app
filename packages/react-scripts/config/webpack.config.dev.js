@@ -176,17 +176,17 @@ module.exports = {
       // in development "style" loader enables hot editing of CSS.
       {
         test: /\.css$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loaders: ['style', 'css?modules&camelCase', 'postcss']
       },
       {
         test: /\.css$/,
-        exclude: paths.appSrc,
+        exclude: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loaders: ['style', 'css']
       },
       {
         test: /\.styl$/,
-        include: paths.appSrc,
+        include: [paths.appSrc, path.resolve(paths.appNodeModules, '@psychwire')],
         loaders:
           [
             'style',
