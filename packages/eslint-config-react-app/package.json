@@ -1,11 +1,14 @@
 {
-  "name": "eslint-config-react-app",
+  "name": "@psychwire/eslint-config-react-app",
   "version": "0.5.0",
   "description": "ESLint configuration used by Create React App",
-  "repository": "facebookincubator/create-react-app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Psychwire/create-react-app.git"
+  },
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/Psychwire/create-react-app/issues"
   },
   "files": [
     "index.js"
@@ -17,5 +20,11 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1"
-  }
+  },
+  "homepage": "https://github.com/Psychwire/create-react-app#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": ""
 }
