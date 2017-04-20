@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@psychwire/babel-preset-react-app": "^2.0.12",
+    "@psychwire/eslint-config-react-app": "^0.5.0",
     "autoprefixer": "6.5.1",
     "axis": "0.6.1",
     "babel-core": "6.21.0",
@@ -38,7 +39,6 @@
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
     "eslint": "3.8.1",
-    "eslint-config-react-app": "0.5.0",
     "eslint-loader": "1.6.0",
     "eslint-plugin-flowtype": "2.21.0",
     "eslint-plugin-import": "2.0.1",
