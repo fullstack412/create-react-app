@@ -34,6 +34,7 @@ function getClientEnvironment(publicUrl) {
       'PUBLIC_URL': JSON.stringify(publicUrl),
       'LOGIN_ENV': JSON.stringify(process.env.LOGIN_ENV),
       'LEGACY_API': JSON.stringify(process.env.LEGACY_API),
+      'LEGACY_COURSES_URL': JSON.stringify(process.env.LEGACY_COURSES_URL),
       'API': JSON.stringify(process.env.API),
       'CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
       'CLOUDINARY_UPLOAD_URL':
